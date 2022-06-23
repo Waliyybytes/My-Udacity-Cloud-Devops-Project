@@ -73,7 +73,7 @@ Resources:
       # ToDo: AMI ID of Ubuntu Linux machine. Too get one, try creating a VM from the web console. 
       ImageId: ami-0729e439b6769d6ab
       # ToDo: Change the key-pair name, as applicable to you. 
-      KeyName: volaa
+      #KeyName: volaa
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.medium
@@ -137,7 +137,11 @@ Resources:
       VpcId: 
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
-#Outputs: 
+Outputs: 
+  WebAppLB:
+    Description: The DNS Name of the the Web App Load Balancer
+    Value: http://serve-webap-1gnpkw07if9lv-1248246746.us-east-1.elb.amazonaws.com/
+      
   # This is also optional.
   # Bonus points for useful outputs!
   # for example, if you create a Load Balancer
